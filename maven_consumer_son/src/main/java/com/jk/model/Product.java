@@ -3,6 +3,7 @@ package com.jk.model;
 import java.io.Serializable;
 import java.util.Date;
 
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Product implements Serializable{
