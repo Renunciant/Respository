@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+     
+<struts>
+	<package name="struts2" extends="struts-default">
+	<action name="insertAction" class="com.jk.action.ExcAction" method="insertExc">
+	        <result name="insertExcSuccess" type="chain">queryExcAction</result>
+	</action>
+    <action name="queryExcAction" class="com.jk.action.ExcAction" method="queryExc">
+	        <result name="queryExcSuccess">excList.jsp</result>
+	</action>
+	 <action name="deleteAllAction" class="com.jk.action.ExcAction" method="deleteAllExc">
+	        <result name="deleteAllSuccess" type="chain">queryExcAction</result>
+	</action>
+	
+	<!--下载  -->
+		  <action name="downloadHeadPhotoAction"  class="com.jk.action.ExcAction" method="downloadHeadPhotoAction">
+		
+		    <result name="photoPhoto" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">
+					attachment;fileName="${headImgFileName}"
+				</param>
+				<param name="inputName">fileInputStrem</param>
+			</result>
+		</action>    
+	</package>
+</struts>
